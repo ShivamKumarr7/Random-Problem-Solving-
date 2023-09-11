@@ -1,0 +1,29 @@
+// A Discrete Mathematics professor has a class of students. 
+// Frustrated with their lack of discipline, the professor decides to cancel class if fewer than some number of students are present when class starts
+
+
+string angryProfessor(int k, vector<int> a) {
+    
+    string ans = "";
+    
+    int ct = 0;
+    for(int i=0;i<a.size();i++)
+    {
+        if(a[i] <= 0)
+        {
+            ct += 1;
+        }
+    }
+    
+    if(ct >= k)
+    {
+        ans = "NO";
+    }
+    else 
+    {
+        ans = "YES";
+    }
+    
+    return ans;
+
+}
