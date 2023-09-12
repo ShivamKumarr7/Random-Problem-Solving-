@@ -1,0 +1,29 @@
+// Lily likes to play games with integers. She has created a new game where she determines the difference between a number and its reverse.
+
+int reverse(int n)
+{
+    int rev = 0;
+    while(n != 0)
+    {
+        int last_digit = n % 10;
+        rev = rev * 10 + last_digit;
+        n = n / 10;
+    }
+    return rev;
+}
+
+int beautifulDays(int i, int j, int k) {
+    
+    int ct = 0;
+    for(int start = i;start <= j;start++)
+    {
+        int real_number = start;
+        int reversed_number = reverse(start);
+        if(abs(real_number - reversed_number) % k == 0)
+        {
+            ct += 1;
+        }
+    }
+    return ct;
+
+}
