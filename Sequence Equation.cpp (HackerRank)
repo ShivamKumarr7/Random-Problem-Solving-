@@ -1,0 +1,25 @@
+vector<int> permutationEquation(vector<int> p) {
+    
+    int n = p.size();
+    
+    vector<int>ans;
+    
+    unordered_map<int,int>umap;
+    unordered_map<int,int>:: iterator it = umap.begin();
+    
+    for(int i=0;i<n;i++)
+    {
+        int idx = i + 1;
+        int value = p[i];
+        umap.insert({value,idx});
+    }
+    
+    for(int i=1;i<=n;i++)
+    {
+        int first_value = umap[i];
+        int second_value = umap[first_value];
+        ans.push_back(second_value);
+    }
+
+    return ans;
+}
