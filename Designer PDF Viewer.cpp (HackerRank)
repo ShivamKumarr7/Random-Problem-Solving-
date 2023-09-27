@@ -1,0 +1,15 @@
+int designerPdfViewer(vector<int> h, string word) {
+    
+    int word_size = word.size();
+    
+    int maxi = INT_MIN;
+    
+    for(int i=0;i<word_size;i++)
+    {
+        int idx = word[i] - 'a';
+        maxi = max(maxi,h[idx]);
+    }
+    
+    return (maxi * word_size);
+
+}
