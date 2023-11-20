@@ -1,0 +1,34 @@
+int howManySatisfy(int n, int k, vector<int>& a) {
+    
+    vector<int>prefix_sum(n,0);
+    prefix_sum[0] = a[0];
+
+    
+    for(int i=1;i<n;i++)
+    {
+        prefix_sum[i] = prefix_sum[i-1] + a[i];
+    }
+
+    int ct = 0;
+
+    for(int i=0;i<n;i++)
+    {
+        int max_index = i + (2 * k) - 1;
+        if(max_index < n)
+        {
+            int left_most_p_index = i;
+            int right_most_p_index = i + k - 1;
+            int left_most_q_index = i+k;
+            int right_most_q_index = max_index;
+            int p = prefix_sum[right_most_p_index] - prefix_sum[left_most_p_index - 1];
+            int q = prefix_sum[right_most_q_index] - prefix_sum[left_most_q_index - 1];
+            if(p > q)
+            {
+                ct += 1;
+            }
+        }
+    }
+
+    return ct;
+
+}
